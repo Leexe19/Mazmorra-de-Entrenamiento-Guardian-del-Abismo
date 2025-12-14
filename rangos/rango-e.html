@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rango E - Mazmorra de Entrenamiento del Guardián del Abismo</title>
+
+    <!-- Hoja de estilo global (fondo y fuentes) -->
+    <link rel="stylesheet" href="../base.css">
+
+    <!-- Hoja de estilos por rango -->
+    <link rel="stylesheet" href="../css/rango-e.css">
+</head>
+<body>
+    <a href="../index.html" class="boton-volver" id="boton-volver-inicio">
+        <img src="../imagen/huevo-arcano.png" alt="" class="huevo-volver">
+        <span>Volver</span>
+    </a>
+
+    <div class="contenido-principal" id="contenido-principal">
+        <h1 class="titulo-rango">Pisos 1~10</h1>
+        <h2 class="subtitulo-rango">Poco Abismo</h2>
+
+        <!-- Botones 1-9 en grid 3x3 -->
+        <div class="contenedor-botones">
+            <button class="boton-piso" data-piso="1">Piso 1</button>
+            <button class="boton-piso" data-piso="2">Piso 2</button>
+            <button class="boton-piso" data-piso="3">Piso 3</button>
+            <button class="boton-piso" data-piso="4">Piso 4</button>
+            <button class="boton-piso" data-piso="5">Piso 5</button>
+            <button class="boton-piso" data-piso="6">Piso 6</button>
+            <button class="boton-piso" data-piso="7">Piso 7</button>
+            <button class="boton-piso" data-piso="8">Piso 8</button>
+            <button class="boton-piso" data-piso="9">Piso 9</button>
+        </div>
+
+        <!-- Botón grande piso 10 -->
+        <div style="display: flex; justify-content: center;">
+            <button class="boton-piso-10" data-piso="10">Piso 10 - Descanso</button>
+        </div>
+    </div>
+
+    <a href="#" class="boton-volver" id="boton-volver-piso" style="display: none;" onclick="volverAPrincipal(); return false;">
+        <img src="../imagen/huevo-arcano.png" alt="" class="huevo-volver">
+        <span>Volver</span>
+    </a>
+
+    <script>
+        // Ocultar contenido principal y mostrar botón volver al hacer clic en un piso
+        document.querySelectorAll('.boton-piso, .boton-piso-10').forEach(boton => {
+            boton.addEventListener('click', function() {
+                document.getElementById('contenido-principal').style.display = 'none';
+                document.getElementById('boton-volver-inicio').style.display = 'none';
+                document.getElementById('boton-volver-piso').style.display = 'inline-flex';
+            });
+        });
+
+        // Función para volver a la pantalla principal del rango E
+        function volverAPrincipal() {
+            document.getElementById('contenido-principal').style.display = 'block';
+            document.getElementById('boton-volver-inicio').style.display = 'inline-flex';
+            document.getElementById('boton-volver-piso').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

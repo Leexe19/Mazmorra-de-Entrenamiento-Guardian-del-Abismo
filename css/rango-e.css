@@ -4,3 +4,132 @@
     border-color: #ffd700 !important; /* borde amarillo */
 }
 
+/* Botón volver */
+.boton-volver {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 1.2rem;
+    font-family: 'Rye', serif;
+    color: #ffd700;                       /* letras doradas */
+    background-color: black;              /* fondo negro */
+    border: 2px solid #ffd700;           /* borde dorado */
+    border-radius: 8px;                  /* esquinas redondeadas */
+    padding: 0.5rem 1rem;
+    position: fixed;                      /* posición fija */
+    top: 1rem;                            /* esquina superior */
+    left: 1rem;                           /* esquina izquierda */
+    z-index: 1000;                        /* por encima de otros elementos */
+}
+
+.boton-volver .huevo-volver {
+    width: 30px;
+    height: auto;
+    margin-right: 0.5rem;
+}
+
+/* Contenido principal */
+.contenido-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Título del rango */
+.titulo-rango {
+    font-family: 'UncialAntiqua', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1a0d1a;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 
+        -2px -2px 0 white,
+        1px -2px 0 white,
+        -2px 1px 0 white,
+        1px 1px 0 white,
+        0 -2px 0 white,
+        0 1px 0 white,
+        -2px 0 0 white,
+        1px 0 0 white;
+}
+
+/* Subtítulo del rango */
+.subtitulo-rango {
+    font-family: 'UncialAntiqua', serif;
+    font-size: calc(2.5rem * 1.2);
+    font-weight: bold;
+    color: #1a0d1a;
+    margin: 0 0 3rem 0;
+    text-shadow: 
+        -2px -2px 0 white,
+        1px -2px 0 white,
+        -2px 1px 0 white,
+        1px 1px 0 white,
+        0 -2px 0 white,
+        0 1px 0 white,
+        -2px 0 0 white,
+        1px 0 0 white;
+}
+
+/* Contenedor de botones (1-9) */
+.contenedor-botones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas para botones 1-9 */
+    gap: 1.5rem;
+    max-width: 600px; /* ajustar al nuevo tamaño */
+    width: 100%;
+    margin-bottom: 2rem; /* espacio antes del piso 10 */
+}
+
+/* Botones de piso (1-9) */
+.boton-piso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 1.2rem;
+    font-family: 'Rye', serif;
+    color: #ffd700;                       /* letras doradas */
+    background-color: black;              /* fondo negro */
+    border: 2px solid #ffd700;           /* borde dorado */
+    border-radius: 8px;                  /* esquinas redondeadas */
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.boton-piso:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Botón del piso 10 - grande */
+.boton-piso-10 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'Rye', serif;
+    color: black;
+    background-color: #ffd700; /* dorado de fondo */
+    border: 2px solid #ffd700;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    width: 100%; /* ocupa todo el ancho del contenedor */
+    max-width: 600px;
+    margin: 0 auto; /* centrar horizontalmente */
+}
+
+.boton-piso-10:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
