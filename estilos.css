@@ -1,0 +1,160 @@
+/* ===== Fondo ===== */
+body {
+    background-image: url("https://i.imgur.com/STMJXxz.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    text-align: center;
+    color: #eee;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* ===== Títulos ===== */
+.titulo-principal {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a0d1a;
+    margin: 0;
+    text-shadow:
+        -2px -2px 0 white,
+        2px -2px 0 white,
+        -2px 2px 0 white,
+        2px 2px 0 white;
+}
+
+.titulo-secundario {
+    font-family: "Uncial Antiqua", serif;
+    font-size: 3rem;
+    margin: 0.5rem 0 1.5rem;
+    color: #1a0d1a;
+    text-shadow:
+        -2px -2px 0 white,
+        2px -2px 0 white,
+        -2px 2px 0 white,
+        2px 2px 0 white;
+}
+
+/* ===== Navegación ===== */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 420px;
+}
+
+nav ul li:nth-child(7) {
+    grid-column: 1 / -1;
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    text-decoration: none;
+    font-family: "Rye", serif;
+    font-size: 1.2rem;
+
+    background-color: black;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.huevo {
+    width: 30px;
+    height: auto;
+}
+
+/* ===== Colores por rango ===== */
+.rango-e { color: #ffd700; border-color: #ffd700; }
+.rango-d { color: #00bfff; border-color: #00bfff; }
+.rango-c { color: #32cd32; border-color: #32cd32; }
+.rango-b { color: #ff8c00; border-color: #ff8c00; }
+.rango-a { color: #ff0000; border-color: #ff0000; }
+.rango-s { color: #9400d3; border-color: #9400d3; }
+
+/* ===== RANGO X (AZUL OSCURO) ===== */
+nav a.rango-x {
+    border-color: #0a1aff;
+    box-shadow: 0 0 8px rgba(10, 26, 255, 0.6);
+}
+
+nav a.rango-x span {
+    color: #0a1aff;
+    text-shadow: 0 0 6px rgba(10, 26, 255, 0.8);
+}
+
+/* Añade esto al final de estilos.css */
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .titulo-principal {
+        font-size: 1.5rem;
+    }
+    
+    .titulo-secundario {
+        font-size: 2.2rem;
+    }
+    
+    nav ul {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+    
+    nav ul li:nth-child(7) {
+        grid-column: 1;
+    }
+    
+    nav a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .huevo {
+        width: 25px;
+    }
+}
+
+/* ===== Mejora de accesibilidad ===== */
+nav a:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ===== Efecto activo para los enlaces ===== */
+nav a:active {
+    transform: scale(0.98);
+}
+
+/* ===== Mejora del fondo para pantallas grandes ===== */
+@media (min-width: 1200px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+
+/* ===== Suavizar transiciones ===== */
+nav a {
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
