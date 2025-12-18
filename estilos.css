@@ -4,6 +4,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0;
 
     display: flex;
@@ -44,8 +45,16 @@ body {
         2px 2px 0 white;
 }
 
-/* ===== Navegación ===== */
-nav ul {
+.titulo-pisos {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== Navegación de rangos ===== */
+.menu-rangos ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -55,11 +64,11 @@ nav ul {
     max-width: 420px;
 }
 
-nav ul li:nth-child(7) {
+.menu-rangos ul li:nth-child(7) {
     grid-column: 1 / -1;
 }
 
-nav a {
+.menu-rangos a {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -68,17 +77,19 @@ nav a {
     font-family: "Rye", serif;
     font-size: 1.2rem;
 
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
     border: 2px solid;
     border-radius: 8px;
     padding: 0.5rem 1rem;
 
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
-nav a:hover {
+.menu-rangos a:hover {
     transform: scale(1.05);
     opacity: 0.9;
+    box-shadow: 0 0 10px currentColor;
 }
 
 .huevo {
@@ -94,18 +105,246 @@ nav a:hover {
 .rango-a { color: #ff0000; border-color: #ff0000; }
 .rango-s { color: #9400d3; border-color: #9400d3; }
 
-/* ===== RANGO X (AZUL OSCURO) ===== */
-nav a.rango-x {
+/* ===== RANGO X ===== */
+.menu-rangos a.rango-x {
     border-color: #0a1aff;
     box-shadow: 0 0 8px rgba(10, 26, 255, 0.6);
 }
 
-nav a.rango-x span {
+.menu-rangos a.rango-x span {
     color: #0a1aff;
     text-shadow: 0 0 6px rgba(10, 26, 255, 0.8);
 }
 
-/* Añade esto al final de estilos.css */
+/* ===== Contenedor de pisos ===== */
+.pisos-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 3px solid #ffd700;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Grid de pisos ===== */
+.grid-pisos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Botones de piso ===== */
+.piso {
+    background-color: rgba(255, 215, 0, 0.15);
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    color: #ffd700;
+    font-family: "Rye", serif;
+    font-size: 1.1rem;
+    padding: 0.8rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.piso:hover {
+    background-color: rgba(255, 215, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.piso:active {
+    transform: translateY(-1px);
+}
+
+/* ===== Estilo especial para el piso de descanso ===== */
+.piso-descanso {
+    background: linear-gradient(to bottom, rgba(139, 69, 19, 0.2), rgba(101, 67, 33, 0.3));
+    border: 3px solid #8B4513;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://i.imgur.com/K8LBMoX.png');
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-position: center;
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    grid-column: 1 / -1;
+    font-size: 1.2rem;
+    min-height: 80px;
+}
+
+.piso-descanso::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.piso-descanso > * {
+    position: relative;
+    z-index: 1;
+}
+
+.piso-descanso:hover {
+    background-color: rgba(139, 69, 19, 0.5);
+    box-shadow: 0 5px 20px rgba(139, 69, 19, 0.7);
+    transform: translateY(-3px);
+}
+
+.subtitulo {
+    font-size: 0.9rem;
+    font-family: "Cinzel Decorative", serif;
+    opacity: 0.9;
+    margin-top: 0.3rem;
+}
+
+/* ===== Botón volver ===== */
+.btn-volver {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    color: #ffd700;
+    font-family: "Rye", serif;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-volver:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* ===== Estilos para detalles del piso ===== */
+.detalles-piso-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 3px solid #ffd700;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 0.5s ease;
+}
+
+.titulo-detalles {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 0.5rem;
+}
+
+.contenido-detalles {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.subtitulo-detalles {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.lista-enemigos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-enemigos li {
+    margin: 0.5rem 0;
+    padding: 0.3rem 0.5rem;
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid #ffd700;
+    border-radius: 3px;
+}
+
+.lista-enemigos a {
+    color: #ffd700;
+    text-decoration: none;
+    font-family: "Rye", serif;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.lista-enemigos a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.texto-mapa, .texto-notas {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 1rem;
+    color: #e6e6e6;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: rgba(255, 215, 0, 0.05);
+    border-radius: 5px;
+    line-height: 1.4;
+}
+
+/* ===== Estilo especial para notas del piso 10 ===== */
+.piso[data-piso="10"] ~ .detalles-piso-container .texto-notas {
+    color: #FFD700;
+    background-color: rgba(139, 69, 19, 0.1);
+    border-left: 4px solid #8B4513;
+    padding: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.btn-volver-detalles {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    color: #ffd700;
+    font-family: "Rye", serif;
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-volver-detalles:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* ===== Efecto especial cuando fondo es ruinas ===== */
+body[style*="K8LBMoX"] .detalles-piso-container {
+    border-color: #8B4513;
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+}
+
+body[style*="K8LBMoX"] .titulo-detalles {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
 
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
@@ -117,16 +356,20 @@ nav a.rango-x span {
         font-size: 2.2rem;
     }
     
-    nav ul {
+    .titulo-pisos {
+        font-size: 1.5rem;
+    }
+    
+    .menu-rangos ul {
         grid-template-columns: 1fr;
         max-width: 300px;
     }
     
-    nav ul li:nth-child(7) {
+    .menu-rangos ul li:nth-child(7) {
         grid-column: 1;
     }
     
-    nav a {
+    .menu-rangos a {
         font-size: 1rem;
         padding: 0.4rem 0.8rem;
     }
@@ -134,27 +377,91 @@ nav a.rango-x span {
     .huevo {
         width: 25px;
     }
-}
-
-/* ===== Mejora de accesibilidad ===== */
-nav a:focus {
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-}
-
-/* ===== Efecto activo para los enlaces ===== */
-nav a:active {
-    transform: scale(0.98);
-}
-
-/* ===== Mejora del fondo para pantallas grandes ===== */
-@media (min-width: 1200px) {
-    body {
-        background-attachment: fixed;
+    
+    .grid-pisos {
+        gap: 0.6rem;
+    }
+    
+    .piso {
+        font-size: 1rem;
+        min-height: 60px;
+        padding: 0.6rem 0.3rem;
+    }
+    
+    .piso-descanso {
+        min-height: 70px;
+        font-size: 1.1rem;
+    }
+    
+    .subtitulo {
+        font-size: 0.8rem;
+    }
+    
+    .titulo-detalles {
+        font-size: 1.5rem;
+    }
+    
+    .subtitulo-detalles {
+        font-size: 1.1rem;
+    }
+    
+    .lista-enemigos a {
+        font-size: 0.9rem;
+    }
+    
+    .texto-mapa, .texto-notas {
+        font-size: 0.95rem;
     }
 }
+/* ===== Transiciones para el fondo ===== */
+body {
+    background-image: url("https://i.imgur.com/STMJXxz.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+    text-align: center;
+    color: #eee;
+    padding: 1rem;
+    box-sizing: border-box;
+    
+    /* Transición suave para el fondo */
+    transition: background-image 1s ease-in-out;
+    position: relative;
+}
 
-/* ===== Suavizar transiciones ===== */
-nav a {
-    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+/* Capa de superposición para el efecto de fade */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: -1;
+    transition: background-color 1s ease-in-out;
+}
+
+/* Cuando hay transición de fondo */
+body.cambiando-fondo::before {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Asegurar que el contenido esté sobre el fondo */
+.titulo-principal,
+.titulo-secundario,
+.menu-rangos,
+.pisos-container,
+.detalles-piso-container {
+    position: relative;
+    z-index: 1;
 }

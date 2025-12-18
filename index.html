@@ -21,7 +21,7 @@
     <h1 class="titulo-principal">Mazmorra de entrenamiento:</h1>
     <h2 class="titulo-secundario">Guardián del Abismo</h2>
 
-    <nav>
+    <nav class="menu-rangos">
         <ul>
             <li><a href="#" class="rango-e"><img src="https://i.imgur.com/VyoxyFN.png" class="huevo"><span>Rango E</span></a></li>
             <li><a href="#" class="rango-d"><img src="https://i.imgur.com/NXZuoDn.png" class="huevo"><span>Rango D</span></a></li>
@@ -33,7 +33,51 @@
         </ul>
     </nav>
 
-    <!-- JavaScript (por ahora vacío, para futuras funcionalidades) -->
+    <!-- Contenedor de pisos (inicialmente oculto) -->
+    <div class="pisos-container" id="pisos-rango-e" style="display: none;">
+        <h3 class="titulo-pisos">Pisos Rango E</h3>
+        <div class="grid-pisos">
+            <button class="piso" data-piso="1">Piso 1</button>
+            <button class="piso" data-piso="2">Piso 2</button>
+            <button class="piso" data-piso="3">Piso 3</button>
+            
+            <button class="piso" data-piso="4">Piso 4</button>
+            <button class="piso" data-piso="5">Piso 5</button>
+            <button class="piso" data-piso="6">Piso 6</button>
+            
+            <button class="piso" data-piso="7">Piso 7</button>
+            <button class="piso" data-piso="8">Piso 8</button>
+            <button class="piso" data-piso="9">Piso 9</button>
+            
+            <button class="piso piso-descanso" data-piso="10">
+                Piso 10<br>
+                <span class="subtitulo">🏰 Ruinas del Castillo</span>
+            </button>
+        </div>
+        <button class="btn-volver">← Volver a Rangos</button>
+    </div>
+
+    <!-- Contenedor de detalles del piso (inicialmente oculto) -->
+    <div class="detalles-piso-container" id="detalles-piso" style="display: none;">
+        <h3 class="titulo-detalles" id="titulo-detalles">Detalles del Piso</h3>
+        <div class="contenido-detalles">
+            <div class="info-detalles">
+                <h4 class="subtitulo-detalles">👹 Enemigos:</h4>
+                <ul class="lista-enemigos" id="lista-enemigos">
+                    <!-- Aquí se cargarán los enemigos dinámicamente -->
+                </ul>
+                
+                <h4 class="subtitulo-detalles">🗺️ Tipo de Mapa:</h4>
+                <p class="texto-mapa" id="texto-mapa"></p>
+                
+                <h4 class="subtitulo-detalles">📝 Notas:</h4>
+                <p class="texto-notas" id="texto-notas"></p>
+            </div>
+        </div>
+        <button class="btn-volver-detalles">← Volver a Pisos</button>
+    </div>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
